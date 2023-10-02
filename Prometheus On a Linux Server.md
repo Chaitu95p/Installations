@@ -6,7 +6,7 @@ https://devopscube.com/install-configure-prometheus-linux/
 
 ### Setup Prometheus Binaries:
 ```shell
-sudo yum update -y
+yum update -y
 wget https://github.com/prometheus/prometheus/releases/download/v2.47.0/prometheus-2.47.0.linux-amd64.tar.gz
 tar -xvzf prometheus-2.47.0.linux-amd64.tar.gz
 mv prometheus-2.22.0.linux-amd64 prometheus-files
@@ -81,3 +81,24 @@ systemctl status prometheus
 - Use server's public ip to access the Prometheus
 
 http://[prometheus-ip]:9090/graph
+
+---
+
+# Installing Grafana on an Amazon Linux server:
+
+https://grafana.com/grafana/download?edition=oss
+
+```shell
+dnf update -y
+dnf install -y https://dl.grafana.com/oss/release/grafana-10.1.4-1.x86_64.rpm
+```
+
+**To start the grafana server**
+
+```shell
+systemctl daemon-reload
+systemctl enable grafana-server
+systemctl start grafana-server
+
+systemctl status grafana-server
+```
